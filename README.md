@@ -1,12 +1,12 @@
-# Elisabete Nogueira — PWA 1.5
+# Elisabete Nogueira — PWA 1.6
 
 ## Novidades
-- Galeria única de avatares inspirada em ilustrações vetoriais, com 12 personagens humanos e 10 animais. Sem categorias ou abas.
-- Avatares SVG gerados no próprio HTML, com fundo circular e estilo consistente, tanto no primeiro acesso como no seletor de perfil.
-- Mantém opção de foto da galeria e preserva perfil/tema existente.
-- Aviso de atualização redesenhado, centralizado no topo, com os botões **Atualizar agora**, **Depois** e fechar.
-- Service Worker usa o cache `elisabete-app-v15-1` para detectar a nova versão.
+- Nomes visíveis removidos debaixo das imagens dos avatares, mantendo descrição acessível via aria-label.
+- Nova janela de **O que mudou nesta atualização?**, apresentada uma única vez por versão, depois da instalação e carregamento de uma atualização.
+- A confirmação é salva na chave local `elisabete_release_notes_seen`; o nome, a foto, os favoritos e o tema permanecem intactos.
+- Novo identificador do cache: `elisabete-app-v16-1`.
 
-## Notas
-- O painel de administração e a senha da biblioteca seguem como demonstração, sem proteção adequada para materiais pagos.
-- O HTML permanece compatível com publicação no GitHub Pages.
+## Para futuras versões
+Atualizar `APP_VERSION`, `RELEASE_NOTES.items` e o identificador `CACHE` em `sw.js` em cada publicação. O aplicativo mostrará automaticamente o resumo daquela versão após a atualização. No primeiro acesso de uma instalação nova a janela também será mostrada, para apresentar as novidades, após concluir o cadastro.
+
+**Nota:** painel administrador e bloqueio da biblioteca continuam demonstrativos, sem autenticação segura.

@@ -1,13 +1,9 @@
-# Elisabete Nogueira — PWA 1.3
+# Elisabete Nogueira — PWA 1.4
 
-## Ajustes desta versão
-- Elimina o destaque azul de toque em dispositivos móveis sem remover o indicador de foco para navegação por teclado.
-- Transições delicadas e animação de entrada nas telas, com respeito à opção de movimento reduzido do sistema.
-- Ícone de engrenagem tradicional no cabeçalho.
-- Configurações minimalistas: sem banner de introdução e sem saudação do perfil no topo; há título compacto e botão de voltar.
-- Perfil, avatares, foto e aparência continuam editáveis e com dados locais preservados.
-- Biblioteca, Oráculo, Vídeos, Favoritos e acesso por cinco toques à versão mantidos.
-- Cache atualizado para `elisabete-app-v13-1`.
+- Perfil compacto em Configurações: foto/animal com seletor ao toque, nome mostrado com lápis para editar sob demanda.
+- Dez avatares de animais ilustrados em SVG diretamente no aplicativo, disponíveis também no primeiro acesso.
+- Tema claro/escuro em controle compacto com ícones de sol e lua.
+- Informações sobre atualizações, versão e privacidade preservadas; acesso ao painel de desenvolvimento por cinco toques na versão mantido.
+- Preferências e foto permanecem salvas no aparelho; cache `elisabete-app-v14-1`.
 
-## Observação
-O painel administrativo e a senha da biblioteca continuam demonstrativos. Não armazenar credenciais administrativas diretamente em HTML público.
+**Segurança:** acesso à biblioteca e painel de administração ainda são demonstrativos, sem proteção real dos arquivos públicos.

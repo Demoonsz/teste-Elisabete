@@ -29,3 +29,12 @@ O arquivo `administrar-assinaturas.html` oferece o usuário fixo **root**. Na pr
 O usuário pode **Sair** (trava o painel, mas preserva o cofre), ou **Esquecer conexão** (apaga o cofre local e exige o token e a frase para refazer o vínculo). O banco de assinantes no GitHub não é apagado. A senha root não é embutida no JavaScript nem gravada diretamente.
 
 **Limitações de segurança:** uma senha root fraca, especialmente uma já divulgada, pode permitir adivinhação offline dos dados salvos caso alguém tenha acesso ao armazenamento do navegador. O token tem poderes reais de escrita e, uma vez desbloqueado, fica em memória no navegador; extensões maliciosas, scripts comprometidos ou acesso ao aparelho podem comprometê-lo. Isso não substitui autenticação do lado do servidor. Recomenda-se senha longa e única e token GitHub com permissões mínimas, escopo restrito e expiração.
+
+## Versão 2.2 — atualização completa do PWA
+
+- Publicado novo `APP_VERSION='2.2'` em `index.html` e novo cache `elisabete-app-v22-1` em `sw.js` para acionar a atualização nos aparelhos instalados.
+- Aviso de novidades descreve o login `root` e a opção de lembrar a conexão GitHub criptografada no aparelho.
+- O painel `administrar-assinaturas.html` já está publicado e pode ser aberto separadamente.
+- Os dados reais dos assinantes ficam no repositório privado `Demoonsz/assinaturas`; tokens e frases secretas não ficam incorporados ao código público.
+
+A atualização do PWA pode depender do navegador buscar o novo service worker ao reabrir o aplicativo. O sistema atual continua sendo um controle básico de acesso, e não proteção segura de conteúdo pago.

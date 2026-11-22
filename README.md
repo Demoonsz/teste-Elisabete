@@ -1,18 +1,13 @@
-# Elisabete Nogueira — PWA 1.2
+# Elisabete Nogueira — PWA 1.3
 
-## Novidades
+## Ajustes desta versão
+- Elimina o destaque azul de toque em dispositivos móveis sem remover o indicador de foco para navegação por teclado.
+- Transições delicadas e animação de entrada nas telas, com respeito à opção de movimento reduzido do sistema.
+- Ícone de engrenagem tradicional no cabeçalho.
+- Configurações minimalistas: sem banner de introdução e sem saudação do perfil no topo; há título compacto e botão de voltar.
+- Perfil, avatares, foto e aparência continuam editáveis e com dados locais preservados.
+- Biblioteca, Oráculo, Vídeos, Favoritos e acesso por cinco toques à versão mantidos.
+- Cache atualizado para `elisabete-app-v13-1`.
 
-- Tema claro ou escuro, com preferência persistida localmente em `elisabete_profile_theme`.
-- Primeiro acesso com nome, foto da galeria **ou** avatar de animal (opcional), e escolha do tema.
-- Avatares disponíveis: coruja, gato, cachorro, coelho, raposa, urso, panda, pássaro, borboleta e tartaruga.
-- Preferências podem ser alteradas em Configurações; fotos ficam armazenadas somente no aparelho.
-- Visitantes que já possuem nome salvo não precisam refazer seus dados: se o tema ainda não estiver escolhido, a personalização será apresentada com o nome preenchido.
-- Cache do Service Worker: `elisabete-app-v12-1`.
-
-## Publicação
-
-Este repositório é publicado pelo GitHub Pages. Ao atualizar `index.html` e `sw.js`, o PWA instalado pode mostrar o aviso de atualização. Os vídeos permanecem em `conteudos/videos.json`.
-
-## Observações
-
-O painel de administração continua demonstrativo, sem autenticação segura. A senha de acesso à biblioteca também é demonstrativa. Não inserir segredos nem conteúdos comerciais protegidos por apenas uma senha presente no código.
+## Observação
+O painel administrativo e a senha da biblioteca continuam demonstrativos. Não armazenar credenciais administrativas diretamente em HTML público.

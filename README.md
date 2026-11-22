@@ -1,31 +1,28 @@
-# Elisabete Nogueira — PWA v0.9
+# Elisabete Nogueira — PWA v1.0
 
-## Conteúdo da versão
-- Início simplificado, sem seção Sobre nem foto de apresentação. Menu inferior: Início, Biblioteca, Oráculo, Vídeos e Favoritos.
-- Biblioteca e Oráculo permanecem como na v0.8 (518 mensagens).
-- Vídeos do YouTube são lidos de `conteudos/videos.json`.
-- Acesso discreto à **Administração (prévia)** pelo fim da página inicial ou menu lateral no desktop.
-- No painel, é possível cadastrar/remover vídeos, importar o catálogo já publicado e **baixar um `videos.json`**. Esse editor é local: **não faz publicação direta**.
-- Serviço offline atualizado para cache `elisabete-app-v09-1`, permitindo testar a atualização no PWA instalado da v0.8.
+## Atualização do GitHub Pages
 
-## Como atualizar o aplicativo já instalado
-1. Descompacte este pacote.
-2. No repositório `Demoonsz/teste-Elisabete`, substitua os arquivos da raiz e das subpastas pelos arquivos deste pacote, preservando a estrutura de pastas (especialmente `index.html`, `sw.js`, `manifest.webmanifest`, `assets/` e `conteudos/`). **Não envie a pasta contêiner `Elisabete_Nogueira_PWA_v09` para dentro do repositório**, somente seu conteúdo.
-3. Faça o commit na branch publicada pelo GitHub Pages.
-4. Abra o PWA instalado com internet. Na versão antiga, feche e reabra ou volte do segundo plano; o Service Worker verifica uma atualização. Quando aparecer o aviso, clique em **Atualizar agora**. Alguns navegadores verificam apenas ao reiniciar o PWA, e o deploy pode demorar a propagar.
-5. Confirme que a aba Sobre desapareceu, restam 5 abas e a área Administração (prévia) aparece no final da página inicial.
+Envie **o conteúdo desta pasta** para a raiz da branch publicada no GitHub Pages, substituindo os arquivos anteriores. Não coloque a pasta v10 dentro do repositório como subpasta.
 
-## Cadastrar vídeos
-1. Publique o vídeo no YouTube (pode ser não listado; qualquer pessoa com o link consegue assistir).
-2. Acesse Administração (prévia), preencha título, link, descrição e tema.
-3. Clique em **Adicionar ao rascunho** e em **Baixar videos.json**.
-4. No GitHub, substitua `conteudos/videos.json` por esse arquivo e faça o commit. Não é preciso atualizar o código para cadastrar só vídeos.
-5. Alterações feitas no painel não modificam o conteúdo do site de outras pessoas até publicar o JSON no repositório.
+**Novidades**
+- Atalho **Meu perfil** na tela inicial e engrenagem no cabeçalho; configurações acessíveis também no menu lateral do computador.
+- Foto de perfil opcional, redimensionada para 256 × 256 e salva **somente no aparelho atual**, em localStorage.
+- Configurações com verificação de atualização, versão 1.0 e limpeza dos favoritos.
+- **Cinco toques rápidos** na linha **Versão do aplicativo** abrem o painel de administração (rascunho).
+- Removemos o link ostensivo de administração da navegação e da página inicial.
+- Service Worker atualizado para `elisabete-app-v10-1` para acionar o fluxo de atualização já testado.
 
-## Segurança e limites
-- **O painel não é protegido**, não possui login root e não pode alterar o GitHub. Não digite nele tokens, senhas pessoais nem dados privados.
-- Antes de permitir publicação pelo painel, implementar autenticação e autorização reais com um backend/serviço seguro e credenciais armazenadas no servidor, nunca em HTML/JavaScript público.
-- A senha demonstrativa da biblioteca `CRYSTAL2026` continua legível no código e não protege os materiais do repositório público. Não considere a biblioteca ou o Oráculo seguros para distribuição paga nesta etapa.
-- YouTube não listado não garante sigilo do link; incorporações podem oferecer opções externas dependendo da plataforma.
-- Um PWA troca arquivos/cache nas atualizações, não mescla arquivos linha a linha. Dados locais de favoritos/desbloqueio no mesmo domínio costumam persistir, salvo limpeza do armazenamento.
-- Para testar em localhost: `python -m http.server 8000`; abra `http://localhost:8000`.
+## Segurança — importante
+
+O gesto secreto **não é autenticação**. Qualquer pessoa com conhecimento técnico pode encontrar o código do painel em um PWA público. O painel atual apenas prepara e exporta um arquivo `videos.json`; ele **não publica no GitHub** nem possui acesso root real. Não coloque tokens, senhas administrativas ou material pago em texto puro no repositório. Para publicação real pelo painel, usar autenticação externa e servidor intermediário seguro.
+
+## Teste
+
+1. Publique a atualização no GitHub Pages.
+2. Abra o PWA instalado e aceite o aviso de atualização.
+3. Em Início, toque em Meu perfil ou engrenagem.
+4. Adicione foto (opcional). Verifique a versão 1.0.
+5. Toque na linha Versão do aplicativo cinco vezes em até cerca de 2,7 segundos.
+6. Teste exportar o catálogo no painel; alterações não são publicadas automaticamente.
+
+Dados locais devem continuar durante uma atualização normal, mas podem ser removidos ao limpar os dados do site ou mudar de domínio.

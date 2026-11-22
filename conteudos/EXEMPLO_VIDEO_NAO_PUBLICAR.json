@@ -1,0 +1,11 @@
+{
+  "versao": 1,
+  "videos": [
+    {
+      "titulo": "Título da aula",
+      "descricao": "Breve descrição escrita pela Elisabete.",
+      "categoria": "Autoconhecimento",
+      "youtubeId": "COLOQUE_ID"
+    }
+  ]
+}

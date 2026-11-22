@@ -1,31 +1,31 @@
-# Elisabete Nogueira — PWA v0.8 (estrutura inicial)
+# Elisabete Nogueira — PWA v0.9
 
-## O que está pronto
-- Interface existente preservada: Início, Biblioteca, Oráculo (518 mensagens), Favoritos, Sobre e Vídeos.
-- `manifest.webmanifest`, ícones, `sw.js` para instalação e cache offline.
-- Aviso de nova versão quando o navegador encontra uma atualização do service worker.
-- Catálogo `conteudos/videos.json` atualizado por rede; sem vídeos reais ainda.
-- Player do YouTube embutido quando um ID válido for cadastrado.
-- Preferências e desbloqueio da demonstração continuam no `localStorage` do mesmo domínio.
+## Conteúdo da versão
+- Início simplificado, sem seção Sobre nem foto de apresentação. Menu inferior: Início, Biblioteca, Oráculo, Vídeos e Favoritos.
+- Biblioteca e Oráculo permanecem como na v0.8 (518 mensagens).
+- Vídeos do YouTube são lidos de `conteudos/videos.json`.
+- Acesso discreto à **Administração (prévia)** pelo fim da página inicial ou menu lateral no desktop.
+- No painel, é possível cadastrar/remover vídeos, importar o catálogo já publicado e **baixar um `videos.json`**. Esse editor é local: **não faz publicação direta**.
+- Serviço offline atualizado para cache `elisabete-app-v09-1`, permitindo testar a atualização no PWA instalado da v0.8.
 
-## Publicar no GitHub Pages
-1. Crie um repositório GitHub (ex.: `elisabete-app`) e envie **o conteúdo desta pasta**, com `index.html` na raiz.
-2. Em Settings → Pages, selecione Deploy from a branch, branch `main`, pasta `/ (root)` e salve.
-3. Abra o endereço HTTPS fornecido pelo GitHub Pages e use a opção Instalar/Adicionar à tela inicial do navegador.
-4. Para publicar uma mudança, altere arquivos no repositório e faça commit. Para atualizações do código, altere também a constante `CACHE` em `sw.js` (ex.: `elisabete-app-v08-2`); o app oferecerá recarregamento quando a nova versão for instalada.
-5. Para adicionar um vídeo, edite `conteudos/videos.json` adicionando um objeto com `titulo`, `descricao`, `categoria`, `youtubeId` (11 caracteres do link YouTube). O catálogo é consultado ao abrir o aplicativo e pode ser atualizado sem mudar o HTML. Os vídeos exigem internet.
+## Como atualizar o aplicativo já instalado
+1. Descompacte este pacote.
+2. No repositório `Demoonsz/teste-Elisabete`, substitua os arquivos da raiz e das subpastas pelos arquivos deste pacote, preservando a estrutura de pastas (especialmente `index.html`, `sw.js`, `manifest.webmanifest`, `assets/` e `conteudos/`). **Não envie a pasta contêiner `Elisabete_Nogueira_PWA_v09` para dentro do repositório**, somente seu conteúdo.
+3. Faça o commit na branch publicada pelo GitHub Pages.
+4. Abra o PWA instalado com internet. Na versão antiga, feche e reabra ou volte do segundo plano; o Service Worker verifica uma atualização. Quando aparecer o aviso, clique em **Atualizar agora**. Alguns navegadores verificam apenas ao reiniciar o PWA, e o deploy pode demorar a propagar.
+5. Confirme que a aba Sobre desapareceu, restam 5 abas e a área Administração (prévia) aparece no final da página inicial.
 
-## Teste local
-Use um servidor HTTP local, não `file://`:
-`python -m http.server 8000`
-Abra `http://localhost:8000`. Service workers só funcionam em HTTPS ou localhost.
+## Cadastrar vídeos
+1. Publique o vídeo no YouTube (pode ser não listado; qualquer pessoa com o link consegue assistir).
+2. Acesse Administração (prévia), preencha título, link, descrição e tema.
+3. Clique em **Adicionar ao rascunho** e em **Baixar videos.json**.
+4. No GitHub, substitua `conteudos/videos.json` por esse arquivo e faça o commit. Não é preciso atualizar o código para cadastrar só vídeos.
+5. Alterações feitas no painel não modificam o conteúdo do site de outras pessoas até publicar o JSON no repositório.
 
-## Segurança: importante antes de vender
-A senha `CRYSTAL2026` ainda é **demonstrativa**, visível no JavaScript, e os conteúdos (inclusive o Oráculo) estão incorporados no HTML público. **Não publique materiais pagos neste formato esperando proteção**. GitHub Pages é público. É preciso escolher uma estratégia de proteção real (autenticação/servidor ou criptografia de pacotes com limitações claras), além de decidir como tratar compartilhamento de senha e revogação. YouTube não listado não é privado.
-
-## Limitações
-- O cache offline cobre a interface e textos integrados; YouTube exige internet.
-- Novos vídeos requerem conexão para atualizar o catálogo; um catálogo anterior pode aparecer offline.
-- O estado local fica no domínio do PWA; **não migra automaticamente** do HTML aberto como arquivo no WhatsApp.
-- A atualização troca os arquivos do aplicativo, não faz merge linha a linha; dados de usuário ficam separados em armazenamento local.
-- Para usar outro repositório ou domínio, mantenha os caminhos relativos. Se mudar domínio, armazenamento local não acompanha automaticamente.
+## Segurança e limites
+- **O painel não é protegido**, não possui login root e não pode alterar o GitHub. Não digite nele tokens, senhas pessoais nem dados privados.
+- Antes de permitir publicação pelo painel, implementar autenticação e autorização reais com um backend/serviço seguro e credenciais armazenadas no servidor, nunca em HTML/JavaScript público.
+- A senha demonstrativa da biblioteca `CRYSTAL2026` continua legível no código e não protege os materiais do repositório público. Não considere a biblioteca ou o Oráculo seguros para distribuição paga nesta etapa.
+- YouTube não listado não garante sigilo do link; incorporações podem oferecer opções externas dependendo da plataforma.
+- Um PWA troca arquivos/cache nas atualizações, não mescla arquivos linha a linha. Dados locais de favoritos/desbloqueio no mesmo domínio costumam persistir, salvo limpeza do armazenamento.
+- Para testar em localhost: `python -m http.server 8000`; abra `http://localhost:8000`.

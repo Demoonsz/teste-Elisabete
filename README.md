@@ -1,12 +1,11 @@
-# Elisabete Nogueira — PWA 1.6
+# Elisabete Nogueira — PWA 1.8
 
-## Novidades
-- Nomes visíveis removidos debaixo das imagens dos avatares, mantendo descrição acessível via aria-label.
-- Nova janela de **O que mudou nesta atualização?**, apresentada uma única vez por versão, depois da instalação e carregamento de uma atualização.
-- A confirmação é salva na chave local `elisabete_release_notes_seen`; o nome, a foto, os favoritos e o tema permanecem intactos.
-- Novo identificador do cache: `elisabete-app-v16-1`.
+## Mudanças
 
-## Para futuras versões
-Atualizar `APP_VERSION`, `RELEASE_NOTES.items` e o identificador `CACHE` em `sw.js` em cada publicação. O aplicativo mostrará automaticamente o resumo daquela versão após a atualização. No primeiro acesso de uma instalação nova a janela também será mostrada, para apresentar as novidades, após concluir o cadastro.
+- Substituição do verde predominante por uma paleta ameixa/terracota e creme, incluindo adaptações no tema escuro.
+- Saudação com nome e avatar aparece apenas na tela **Início**; as demais telas usam diretamente os próprios títulos.
+- Engrenagem removida do topo e adicionada ao final da barra inferior, após Favoritos. A barra agora tem seis opções em todos os tamanhos de celular, com ícones compactos.
+- Preservados Oráculo, Biblioteca, Vídeos, Favoritos, configurações, avatares, atualização PWA e popup “O que mudou?”.
+- Cache: `elisabete-app-v18-1`.
 
-**Nota:** painel administrador e bloqueio da biblioteca continuam demonstrativos, sem autenticação segura.
+A senha da biblioteca e o painel desenvolvedor continuam demonstrativos, sem autenticação segura para conteúdo pago.

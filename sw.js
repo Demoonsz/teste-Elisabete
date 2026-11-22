@@ -1,4 +1,4 @@
-const CACHE='elisabete-app-v12-1';const CORE=['./','./index.html','./manifest.webmanifest','./assets/icone-192.png','./assets/icone-512.png','./conteudos/videos.json'];
+const CACHE='elisabete-app-v13-1';const CORE=['./','./index.html','./manifest.webmanifest','./assets/icone-192.png','./assets/icone-512.png','./conteudos/videos.json'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)))});
 self.addEventListener('activate',event=>{event.waitUntil(Promise.all([caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))),self.clients.claim()]))});
 self.addEventListener('message',event=>{if(event.data?.type==='SKIP_WAITING')self.skipWaiting()});

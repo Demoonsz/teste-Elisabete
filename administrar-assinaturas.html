@@ -56,7 +56,7 @@ $("connect").onclick=async()=>{
  try{
   const candidateToken=$("token").value.trim(),candidatePass=$("pass").value,candidateRepo=$("privateRepo").value.trim();
   const rootPassword=$("rootSetupPassword").value,confirmPassword=$("rootSetupConfirm").value;
-  if(!candidateToken||candidatePass.length<16||!/^[\\w-]+\/[\\w.-]+$/.test(candidateRepo))throw Error("Informe token, repositório e a frase secreta (mínimo 16 caracteres).");
+  if(!candidateToken||candidatePass.length<16||!/^[\w-]+\/[\w.-]+$/.test(candidateRepo))throw Error("Informe token, repositório e a frase secreta (mínimo 16 caracteres).");
   if(rootPassword.length<6)throw Error("A senha root precisa ter pelo menos 6 caracteres. Recomendamos 16 ou mais.");
   if(rootPassword!==confirmPassword)throw Error("A confirmação da senha root está diferente.");
   if(rootPassword.length<12)message("Aviso: sua senha root é curta. Recomenda-se escolher uma senha maior.",true);

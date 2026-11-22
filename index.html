@@ -429,7 +429,7 @@ document.addEventListener('click',async e=>{
  if(e.target.closest('#adminCheckUpdate')){const st=document.getElementById('adminUpdateStatus');if(!('serviceWorker' in navigator)){if(st)st.textContent='Atualizações disponíveis somente ao abrir o PWA em HTTPS.';return}try{const r=await navigator.serviceWorker.getRegistration('./');if(r){await r.update();if(st)st.textContent=r.waiting?'Nova versão encontrada. Use o aviso de atualização.':'Verificação concluída. Se houver uma nova versão, o aplicativo exibirá um aviso.'}else if(st)st.textContent='Service Worker ainda não registrado neste navegador.'}catch(error){if(st)st.textContent='Falha ao verificar atualizações.'}}
 });
 
-const APP_VERSION='2.3';
+const APP_VERSION='2.4';
 let versionTapTimes=[];
 function settings(){return `<div class="settings-page-heading"><button type="button" class="settings-back" data-page="home" aria-label="Voltar ao início">←</button><h2>Configurações</h2></div>
 <section class="minimal-profile"><button type="button" class="profile-pick" id="openAvatarPicker" aria-label="Alterar foto ou avatar"><span class="profile-avatar profile-avatar-large">${avatarHTML()}</span><span class="avatar-edit-badge">✎</span></button><div class="profile-identity"><span class="identity-label">Seu nome</span><div class="name-display"><strong>${safeText(profileName||'Visitante')}</strong><button type="button" id="editProfileName" aria-label="Editar nome" class="icon-edit">✎</button></div></div></section>
@@ -461,9 +461,9 @@ const RELEASE_NOTES={
  version:APP_VERSION,
  title:'O que mudou nesta atualização?',
  items:[
-  ['🔐','O acesso ao painel de assinaturas agora abre diretamente a tela de login root.'],
-  ['💾','A senha root é solicitada novamente ao entrar, mesmo com a conexão salva.'],
-  ['⚙️','A área de assinaturas publica alterações reais nos arquivos do GitHub.']
+  ['🔐','O painel de administração começa pelo acesso root, sem pedir o GitHub antes.'],
+  ['⚙️','Na primeira configuração, a conexão com o GitHub aparece apenas depois de definir a senha root.'],
+  ['💾','Nos próximos acessos, a conexão criptografada é recuperada com sua senha root.']
  ]
 };
 const RELEASE_SEEN_KEY='elisabete_release_notes_seen';
